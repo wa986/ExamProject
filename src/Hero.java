@@ -1,5 +1,5 @@
 public class Hero extends Character {
-    String weapon;
+    private String weapon;
 
     public Hero(String name,int hp,String weapon) {
         super(name,hp);

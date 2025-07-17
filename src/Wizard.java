@@ -9,11 +9,12 @@ public class Wizard extends Character {
     public void attack(Creature target) {
         if (mp <= 0) {
             System.out.println(getName() + "はMPが足りないため、攻撃できなかった！");
-        }
 
-        System.out.println(getName() + "は火の玉を放った！" + target.getName() + "に3のダメージを与えた！");
-        target.setHp(target.getHp() - 3);
-        mp--;
+        } else {
+            System.out.println(getName() + "は火の玉を放った！" + target.getName() + "に3のダメージを与えた！");
+            target.setHp(target.getHp() - 3);
+            this.setMp(this.getMp() - 1);
+        }
     }
 
     public int getMp() {

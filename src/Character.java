@@ -16,15 +16,15 @@ public abstract class Character implements Creature {
     }
 
     public void showStatus() {
-        System.out.println(name + "：HP " + hp);
+        System.out.println(this.name + "：HP " + this.hp);
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getHp() {
-        return hp;
+        return this.hp;
     }
 
     public void setHp(int hp) {
@@ -34,5 +34,4 @@ public abstract class Character implements Creature {
             this.hp = hp;
         }
     }
-    public abstract void attack(Creature target);
 }

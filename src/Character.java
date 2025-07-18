@@ -8,7 +8,6 @@ public abstract class Character implements Creature {
         }
         this.name = name;
         this.hp = hp;
-
     }
 
     public final boolean isAlive() {

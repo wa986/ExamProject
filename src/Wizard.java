@@ -9,7 +9,6 @@ public class Wizard extends Character {
     public void attack(Creature target) {
         if (mp <= 0) {
             System.out.println(getName() + "はMPが足りないため、攻撃できなかった！");
-
         } else {
             System.out.println(getName() + "は火の玉を放った！" + target.getName() + "に3のダメージを与えた！");
             target.setHp(target.getHp() - 3);

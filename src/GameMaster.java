@@ -21,7 +21,7 @@ public class GameMaster {
         monsters.add(goblinA);
         monsters.add(slimeA);
 
-        System.out.println("味方パーティー");
+        System.out.println("---味方パーティ---");
         for (Character character : party) {
             character.showStatus();
         }
@@ -31,48 +31,46 @@ public class GameMaster {
             monster.showStatus();
         }
 
-        System.out.println("味方の総攻撃!");
+        System.out.println("\n味方の総攻撃!");
         for (Character attacker : party) {
             for (Monster target : monsters) {
-                if (target.isAlive()) {
-                    attacker.attack(target);
-                }
+                attacker.attack(target);
             }
         }
 
-        System.out.println("敵の総攻撃!");
+        System.out.println("\n敵の総攻撃!");
         for (Monster enemy : monsters) {
-            if (enemy.isAlive()) {
-                for (Character target : party) {
-                    if (target.isAlive()) {
-                        enemy.attack(target);
-                    }
-                }
+            for (Character target : party) {
+                enemy.attack(target);
             }
         }
 
-        System.out.println("ダメージを受けた勇者が突然光だした!");
+
+        System.out.println("\nダメージを受けた勇者が突然光だした!");
         SuperHero superHero = new SuperHero(hero);
-        party.set(0, superHero);  // 勇者 → スーパーヒーローに差し替え
         System.out.println("勇者はスーパーヒーローに進化した!");
-
-        System.out.println("スーパーヒーローの強力な攻撃!");
         for (Monster target : monsters) {
-            if (target.isAlive()) {
-                superHero.attack(target);
-            }
+            superHero.attack(target);
         }
 
-        System.out.println("味方パーティ最終ステータス");
+        System.out.println("\n---味方パーティ最終ステータス---");
         for (Character member : party) {
             member.showStatus();
-            System.out.println("生存状況: " + (member.isAlive() ? "生存" : "戦闘不能"));
+            if (member.isAlive()){
+                System.out.println("生存状況:生存");
+            } else {
+                System.out.println("生存状況:戦闘不能");
+            }
         }
 
-        System.out.println("---敵グループ最終ステータス---");
+        System.out.println("\n---敵グループ最終ステータス---");
         for (Monster monster : monsters) {
             monster.showStatus();
-            System.out.println("生存状況: " + (monster.isAlive() ? "生存" : "討伐済み"));
+            if (monster.isAlive()) {
+                System.out.println("生存状況:生存");
+            } else {
+                System.out.println("生存状況:討伐済み");
+            }
         }
     }
 }

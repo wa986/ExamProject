@@ -13,22 +13,22 @@ public abstract class Monster implements Creature {
     }
 
     public final boolean isAlive() {
-        return hp > 0;
+        return this.hp > 0;
     }
 
     public void showStatus() {
         System.out.println(this.name + this.suffix + "：HP " + this.hp);
     }
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getHp() {
-        return hp;
+        return this.hp;
     }
 
     public char getSuffix() {
-        return suffix;
+        return this.suffix;
     }
 
     public void setHp(int hp) {
